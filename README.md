@@ -7,7 +7,7 @@ You can use **Markdown** syntax to format this file to do things like **bold** o
 
 This particular repository is the starting template for the Hungry Elephant tutorial.
 
-[Part 1: Greenfoot Basics](https://youtu.be/zxaa3X0MihI)
+**[Part 1: Greenfoot Basics](https://youtu.be/zxaa3X0MihI)**
 
 [Part 2: Game Enhancements](https://youtu.be/TwID9i0Ey6o)
 
