@@ -45,6 +45,7 @@ public class MyWorld extends World
             level += 1;
         }
     }
+    
     public void createApple()
     {
         Apple apple = new Apple();

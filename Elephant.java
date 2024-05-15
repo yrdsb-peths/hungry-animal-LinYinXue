@@ -15,6 +15,7 @@ public class Elephant extends Actor
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
     
+    private int score =0;
     public Elephant()
     {
         for(int i = 0; i < idleRight.length; i++)
@@ -82,6 +83,16 @@ public class Elephant extends Actor
             world.createApple();
             world.increaseScore();
             elephantSound.play();
+        }
+    }
+    
+    public void enemyDamage()
+    {
+        Actor enemy = getOneIntersectingObject(Enemy.class);
+        if(enemy !=null)
+        {
+            getWorld().removeObject(enemy);
+            score -= 5;
         }
     }
 }
