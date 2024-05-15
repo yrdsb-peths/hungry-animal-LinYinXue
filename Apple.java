@@ -9,6 +9,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Apple extends Actor
 {
     private int speed = 1;
+    public Apple()
+    {
+        GreenfootImage originalApple = getImage();
+        
+        int newHeight = 50;
+        int newWidth = 50;
+        originalApple.scale(newWidth, newHeight);
+        
+        setImage(originalApple);
+    }
     public void act()
     {
         // Add your action code here.

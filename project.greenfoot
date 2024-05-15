@@ -1,5 +1,5 @@
 #Greenfoot project file
-class.Apple.image=apple.png
+class.Apple.image=PixelApple.png
 class.Elephant.image=elephant_idle.png
 class.MyWorld.image=background.jpg
 class.TitleScreen.image=title.png
@@ -99,5 +99,5 @@ target6.y=0
 version=3.1.0
 width=1002
 world.lastInstantiated=TitleScreen
-xPosition=28
-yPosition=137
+xPosition=0
+yPosition=138
