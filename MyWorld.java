@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class MyWorld here.
@@ -11,10 +12,10 @@ public class MyWorld extends World
     public int score = 0;
     private boolean appleExist = false;
     private boolean enemyExist = false;
-    private boolean dropApple = false;
+    private int appleCounter=0;
     Label scoreLabel;
     int level =1;
-    
+    private boolean gameOver = false;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -38,12 +39,22 @@ public class MyWorld extends World
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
     }
+    public void act()
+    {
+        if(!gameOver)
+        {
+            createObject();
+        }
+    }
     public void createObject()
     {
-        if(!appleExist)
+        appleCounter++;
+        
+        if(!appleExist && appleCounter >= 0)
         {
             createApple();
             appleExist = true;
+            appleCounter=0;
         }
         if(!enemyExist)
         {
@@ -51,7 +62,16 @@ public class MyWorld extends World
             enemyExist = true;
         }
     }
+    public boolean isGameOver()
+    {
+        return gameOver;
+    }
     
+    public void setGameOver(boolean gameOver)
+    {
+        this.gameOver = gameOver;
+    }
+
     public void increaseScore()
     {
         score++;
@@ -78,7 +98,7 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         addObject(enemy, x,y);
-        enemy.setSpeed(10);
+        enemy.setSpeed(3);
     }
     
     public void enemyCollison()
@@ -88,13 +108,4 @@ public class MyWorld extends World
         enemyExist = false;
     }
     
-    public void dropApple()
-    {
-        dropApple =true;
-    }
-    
-    public boolean isAppleDrop()
-    {
-        return dropApple;
-    }
 }
