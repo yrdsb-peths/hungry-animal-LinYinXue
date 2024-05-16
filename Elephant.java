@@ -70,7 +70,7 @@ public class Elephant extends Actor
         }
         
         eat();
-        
+        enemyDamage();
         animateElephant();
     }
     
@@ -88,11 +88,11 @@ public class Elephant extends Actor
     
     public void enemyDamage()
     {
-        Actor enemy = getOneIntersectingObject(Enemy.class);
-        if(enemy !=null)
+        if(isTouching(Enemy.class))
         {
-            getWorld().removeObject(enemy);
-            score -= 5;
+            removeTouching(Enemy.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.enemyCollison();
         }
     }
 }

@@ -12,24 +12,20 @@ public class Enemy extends Actor
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-
+    private int speed = 2;
+    
     public void act()
     {
-        fall();
-        remove();
+       MyWorld world = (MyWorld)getWorld();
+       if(!world.isAppleDrop())
+       {
+           setLocation(getX(), getY() + speed);
+       }
     }
         
-    private void fall()
+    public void setSpeed(int spd)
     {
-        setLocation(getX(),getY()+1);
-    }
-        
-    private void remove()
-    {
-        if(getY() >= getWorld().getHeight()-1)
-        {
-            getWorld().removeObject(this);
-        }
+        speed=spd;
     }
 
 }
