@@ -92,7 +92,7 @@ public class Elephant extends Actor
         {
             removeTouching(Enemy.class);
             MyWorld world = (MyWorld) getWorld();
-            world.enemyCollison();
+            world.enemyCollision();
         }
     }
 }

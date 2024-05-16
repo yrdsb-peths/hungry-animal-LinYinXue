@@ -36,6 +36,12 @@ public class MyWorld extends World
     
     public void gameOver()
     {
+        List<Enemy> enemies = getObjects(Enemy.class); 
+        for (Enemy enemy : enemies) 
+        {
+            removeObject(enemy); 
+        }
+        
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
     }
@@ -101,11 +107,10 @@ public class MyWorld extends World
         enemy.setSpeed(3);
     }
     
-    public void enemyCollison()
+    public void enemyCollision()
     {
         score -= 2;
         scoreLabel.setValue(score);
         enemyExist = false;
     }
-    
 }
