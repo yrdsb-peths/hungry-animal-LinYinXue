@@ -13,3 +13,7 @@ This particular repository is the starting template for the Hungry Elephant tuto
 
 [Part 3: Final Touches](https://youtu.be/GT-eFwa4Abc) ✔
 
+Description of features added: 
+-Enemy that decrease score for 2
+
+The file that contains the array you implemented:
