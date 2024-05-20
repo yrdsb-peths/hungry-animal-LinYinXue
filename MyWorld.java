@@ -12,7 +12,7 @@ public class MyWorld extends World
     public int score = 0;
     private boolean appleExist = false;
     private boolean enemyExist = false;
-    private int appleCounter=0;
+    private int appleCount=0;
     Label scoreLabel;
     int level =1;
     private boolean gameOver = false;
@@ -37,16 +37,25 @@ public class MyWorld extends World
     public void gameOver()
     {
         newBestScore();
-        displayBestScore();
+        
         List<Enemy> enemies = getObjects(Enemy.class); 
         for (Enemy enemy : enemies) 
         {
             removeObject(enemy); 
         }
+        Label bestScoresLabel = new Label("Best Scores:", 30);
+        addObject(bestScoresLabel, 300, 50);
         
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
         
+        int displayScore=0;
+        for(int i =0 ; i< bestScore.length && bestScore[i]>0; i++)
+        {
+           Label scoreLabel = new Label (bestScore[i],60);
+           addObject(scoreLabel, 300, 100 + displayScore *30);
+           displayScore++;
+        }
     }
     public void newBestScore()
     {
@@ -63,17 +72,7 @@ public class MyWorld extends World
             }
         }
     }
-    public void displayBestScore()
-    {
-        Label bestScoreLabel = new Label ("Best Score:",20);
-        addObject(bestScoreLabel,300,50);
-        
-        for(int i =0; i<bestScore.length;i++)
-        {
-            Label scoreLabel = new Label(bestScore[i],60);
-            addObject(scoreLabel, 300, 100);
-        }
-    }
+   
     public void act()
     {
         if(!gameOver)
@@ -83,13 +82,13 @@ public class MyWorld extends World
     }
     public void createObject()
     {
-        appleCounter++;
+        appleCount++;
         
-        if(!appleExist && appleCounter >= 0)
+        if(!appleExist && appleCount >= 0)
         {
             createApple();
             appleExist = true;
-            appleCounter=0;
+            appleCount=0;
         }
         if(!enemyExist)
         {
