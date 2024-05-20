@@ -28,7 +28,7 @@ public class MyWorld extends World
         super(600, 400, 1, false);
         
         bgm = new GreenfootSound("BGM.mp3");
-        bgm.setVolume(40);
+        bgm.setVolume(50);
         bgm.playLoop();
         
         Elephant elephant = new Elephant ();
@@ -69,7 +69,7 @@ public class MyWorld extends World
     {
         for(int i=0; i<bestScore.length;i++)
         {
-            if(score>=bestScore[i])
+            if(score>bestScore[i])
             {
                 for(int j = bestScore.length-1;j>i;j--)
                 {
@@ -86,6 +86,10 @@ public class MyWorld extends World
         if(!gameOver)
         {
             createObject();
+        }
+        if(Greenfoot.isKeyDown("r"))
+        {
+            replayGame();
         }
     }
     public void createObject()
@@ -145,8 +149,25 @@ public class MyWorld extends World
     
     public void enemyCollision()
     {
-        score -= 2;
+        score -= 1;
         scoreLabel.setValue(score);
         enemyExist = false;
+    }
+    public void replayGame()
+    {
+        removeObjects(getObjects(null));
+        score =0;
+        appleExist = false;
+        enemyExist = false;
+        appleCount = 0;
+        level = 1;
+        gameOver = false;
+        
+        Elephant elephant = new Elephant();
+        addObject (elephant, 300, 300);
+        scoreLabel.setValue(score);
+        addObject(scoreLabel,50,50);
+        createObject();
+        bgm.playLoop();
     }
 }
