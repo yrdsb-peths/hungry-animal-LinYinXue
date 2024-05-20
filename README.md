@@ -15,5 +15,5 @@ This particular repository is the starting template for the Hungry Elephant tuto
 
 # Description of features added: 
 - Enemy that decrease score for 1 when the elephant touched it.
-- An array that store the bestScore (in the main world class).
+- An array that store the bestScore (in the main world class), press "r" to replay and to beat the bestScore
 - Added background music, and stop when game over.
