@@ -16,7 +16,7 @@ public class MyWorld extends World
     Label scoreLabel;
     int level =1;
     private boolean gameOver = false;
-    private int [] bestScore = new int[5];
+    private int [] bestScore = {Integer.MIN_VALUE};
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -43,25 +43,26 @@ public class MyWorld extends World
         {
             removeObject(enemy); 
         }
-        Label bestScoresLabel = new Label("Best Scores:", 30);
+        Label bestScoresLabel = new Label("Best Score:", 30);
         addObject(bestScoresLabel, 300, 50);
+    
+        for(int i =0 ; i< bestScore.length; i++)
+        {
+           Label scoreLabel = new Label (bestScore[i],60);
+           addObject(scoreLabel, 300, 100 + i*30);
+           
+        }
         
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
         
-        int displayScore=0;
-        for(int i =0 ; i< bestScore.length && bestScore[i]>0; i++)
-        {
-           Label scoreLabel = new Label (bestScore[i],60);
-           addObject(scoreLabel, 300, 100 + displayScore *30);
-           displayScore++;
-        }
+        gameOver = true;
     }
     public void newBestScore()
     {
         for(int i=0; i<bestScore.length;i++)
         {
-            if(score>bestScore[i])
+            if(score>=bestScore[i])
             {
                 for(int j = bestScore.length-1;j>i;j--)
                 {
