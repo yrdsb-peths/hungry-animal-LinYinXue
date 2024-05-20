@@ -13,7 +13,6 @@ This particular repository is the starting template for the Hungry Elephant tuto
 
 [Part 3: Final Touches](https://youtu.be/GT-eFwa4Abc) ✔
 
-Description of features added: 
--Enemy that decrease score for 2
-
-The file that contains the array you implemented:
+# Description of features added: 
+- Enemy that decrease score for 2 when the elephant touched it.
+- An array that store the bestScore (in the main world class)
