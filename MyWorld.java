@@ -17,6 +17,7 @@ public class MyWorld extends World
     int level =1;
     private boolean gameOver = false;
     private int [] bestScore = {Integer.MIN_VALUE};
+    private GreenfootSound bgm;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,6 +26,10 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false);
+        
+        bgm = new GreenfootSound("BGM.mp3");
+        bgm.setVolume(40);
+        bgm.playLoop();
         
         Elephant elephant = new Elephant ();
         addObject (elephant, 300, 300);
@@ -55,6 +60,8 @@ public class MyWorld extends World
         
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
+        
+        bgm.stop();
         
         gameOver = true;
     }
