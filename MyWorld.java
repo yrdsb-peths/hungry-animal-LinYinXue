@@ -39,9 +39,10 @@ public class MyWorld extends World
         
         createObject();
     }
+    
     public void gameOver()
     {
-        newBestScore();
+        updateBestScore();
         
         List<Enemy> enemies = getObjects(Enemy.class); 
         for (Enemy enemy : enemies) 
@@ -65,7 +66,8 @@ public class MyWorld extends World
         
         gameOver = true;
     }
-    public void newBestScore()
+    
+    public void updateBestScore()
     {
         for(int i=0; i<bestScore.length;i++)
         {
@@ -117,7 +119,7 @@ public class MyWorld extends World
     {
         this.gameOver = gameOver;
     }
-
+    
     public void increaseScore()
     {
         score++;
@@ -153,6 +155,7 @@ public class MyWorld extends World
         scoreLabel.setValue(score);
         enemyExist = false;
     }
+    
     public void replayGame()
     {
         removeObjects(getObjects(null));

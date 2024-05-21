@@ -49,7 +49,7 @@ public class TitleScreen extends World
         addObject(label2,312,327);
         label.setLocation(310,323);
         label2.setLocation(300,275);
-        Label label3 = new Label("Press <r> to replay,\nbeat your best score!", 20);
+        Label label3 = new Label("Press <r> to replay,\nbeat your best score!", 22);
         addObject(label3,376,195);
         label3.setLocation(130,220);
     }
